@@ -2,39 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>AI Frontend</title>
+    <title>AI React UI</title>
   </head>
-
   <body>
-    <h2>AI Interface</h2>
-
-    <textarea id="input" rows="4" cols="50"></textarea>
-    <br />
-
-    <button onclick="send()">Send</button>
-
-    <pre id="output"></pre>
-
-    <script>
-      async function send() {
-        const text = document.getElementById("input").value;
-
-        const res = await fetch(
-          "https://stopaifake.letomaneteo.workers.dev/api",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ prompt: text })
-          }
-        );
-
-        const data = await res.json();
-
-        document.getElementById("output").innerText =
-          data.response || JSON.stringify(data);
-      }
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
