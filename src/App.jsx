@@ -1,5 +1,5 @@
 const React = window.React;
-import { useState } from "react"; 
+import { useState } from "react";
 
 export default function App() {
   const [messages, setMessages] = useState([]);
@@ -17,15 +17,15 @@ export default function App() {
     setLoading(true);
 
     const res = await fetch(
-  "https://broken-waterfall-4c89.letomaneteo.workers.dev",
-  {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ prompt: input })
-  }
-);
+      "https://broken-waterfall-4c89.letomaneteo.workers.dev",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: input })
+      }
+    );
 
-const data = await res.json();
+    const data = await res.json();
 
     const botMessage = {
       role: "bot",
@@ -46,7 +46,8 @@ const data = await res.json();
               ...styles.bubble,
               alignSelf: m.role === "user" ? "flex-end" : "flex-start",
               background: m.role === "user" ? "#2563eb" : "#e5e7eb",
-              color: m.role === "user" ? "white" : "black"
+              color: m.role === "user" ? "white" : "#111",
+              fontSize: 16
             }}
           >
             {m.text}
@@ -83,41 +84,51 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     fontFamily: "sans-serif",
-    background: "#f3f4f6"
+    background: "#e5e7eb"
   },
+
   chat: {
     flex: 1,
     padding: 20,
     display: "flex",
     flexDirection: "column",
-    gap: 10,
+    gap: 12,
     overflowY: "auto"
   },
+
   bubble: {
-    padding: "10px 14px",
-    borderRadius: 12,
-    maxWidth: "70%",
-    whiteSpace: "pre-wrap"
+    padding: "12px 16px",
+    borderRadius: 14,
+    maxWidth: "75%",
+    whiteSpace: "pre-wrap",
+    fontSize: 16
   },
+
   inputBar: {
     display: "flex",
-    padding: 10,
+    padding: 14,
     gap: 10,
-    background: "white",
-    borderTop: "1px solid #ddd"
+    background: "#f9fafb",
+    borderTop: "1px solid #d1d5db",
+    position: "sticky",
+    bottom: 0
   },
+
   input: {
     flex: 1,
-    padding: 10,
-    borderRadius: 8,
-    border: "1px solid #ccc"
+    padding: 12,
+    borderRadius: 10,
+    border: "1px solid #ccc",
+    fontSize: 16
   },
+
   button: {
-    padding: "10px 16px",
-    borderRadius: 8,
+    padding: "10px 18px",
+    borderRadius: 10,
     border: "none",
     background: "#2563eb",
     color: "white",
-    cursor: "pointer"
+    cursor: "pointer",
+    fontSize: 16
   }
 };
