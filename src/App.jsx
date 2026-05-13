@@ -17,15 +17,15 @@ export default function App() {
     setLoading(true);
 
     const res = await fetch(
-      "https://stopaifake.letomaneteo.workers.dev/api",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: input })
-      }
-    );
+  "https://broken-waterfall-4c89.letomaneteo.workers.dev",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt: input })
+  }
+);
 
-    const data = await res.json();
+const data = await res.json();
 
     const botMessage = {
       role: "bot",
