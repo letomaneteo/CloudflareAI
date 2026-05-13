@@ -1,4 +1,4 @@
-import React from "react";
+const React = window.React;
 import { useState } from "react"; 
 
 export default function App() {
